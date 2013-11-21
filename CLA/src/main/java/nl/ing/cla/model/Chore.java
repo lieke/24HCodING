@@ -2,9 +2,9 @@ package nl.ing.cla.model;
 
 public class Chore {
 	
-	private static int NEW_STATUS = 0;
-	private static int DONE_STATUS = 1;
-	private static int PAID_STATUS = 2;
+	public final static int NEW_STATUS = 0;
+	public final static int DONE_STATUS = 1;
+	public final static int PAID_STATUS = 2;
 	
 	String name;	
 	double price;
