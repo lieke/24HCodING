@@ -1,22 +1,28 @@
 package nl.ing.cla.util;
 
-import org.apache.commons.io.FileUtils;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 import org.springframework.stereotype.Component;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-
 @Component
 public class CLAUtil implements Closeable {
 
 	private final File dataLocation = createTempDir();
+	
+	private AtomicLong ID = new AtomicLong();
+	
+	public long giveMeAUniqueId() {
+		return ID.incrementAndGet();
+	}
 
 	private String objectToJSON(Object obj) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
