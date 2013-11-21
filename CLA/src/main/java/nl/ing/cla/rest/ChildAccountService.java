@@ -11,35 +11,30 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import nl.ing.cla.model.ChildAccount;
-import nl.ing.cla.model.ParentAccount;
 
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/json/parentAccount")
-public class ParentAccountService {
+@Path("/json/childAccount")
+public class ChildAccountService {
 
 	@GET
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ParentAccount getTrackInJSON() {
+	public ChildAccount getTrackInJSON() {
 
-		ParentAccount pa = new ParentAccount(1,"P001", 2000.0, "Francois", 34);
 		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
-		pa.addChildAccount(ca);
-		return pa;
+		return ca;
 
 	}
 	
 	@GET
-	@Path("/get/{parentAcountId}")
+	@Path("/get/{childAcountId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ParentAccount getTrackInJSON(@PathParam("parentAcountId") String parentAcountId) {
+	public ChildAccount getTrackInJSON(@PathParam("childAcountId") String childAcountId) {
 
-		ParentAccount pa = new ParentAccount(1,"P001", 2000.0, "Francois", 34);
 		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
-		pa.addChildAccount(ca);
-		return pa;
+		return ca;
 	}
 	
 
@@ -48,7 +43,7 @@ public class ParentAccountService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createTrackInJSON(Track track) {
 
-		String result = "Parent saved : " + track;
+		String result = "Child saved : " + track;
 		return Response.status(201).entity(result).build();
 		
 	}
