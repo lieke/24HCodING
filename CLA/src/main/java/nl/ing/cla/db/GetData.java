@@ -13,11 +13,16 @@ import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.ParentAccount;
 import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.util.CLAUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GetData {
+	@Autowired
+	private CLAUtil util;
 	
-	public static ChildAccount getChildAccountData (final String name) {
-		final String fileName = CLAUtil.getFileName(name + "_child");
+	public ChildAccount getChildAccountData (final String name) {
+		final String fileName = util.getFileName(name + "_child");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			ChildAccount childAccount = mapper.readValue(new File(fileName), ChildAccount.class);
@@ -32,8 +37,8 @@ public class GetData {
 		return null;
 	}
 
-	public static ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
-		final String fileName = CLAUtil.getFileName(name + "_parent");
+	public ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
+		final String fileName = util.getFileName(name + "_parent");
 		DataFileBasedParentAccount parentAccountSimple;
 		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 		

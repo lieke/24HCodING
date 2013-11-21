@@ -8,12 +8,17 @@ import org.codehaus.jackson.map.JsonMappingException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.util.CLAUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SaveData {
+	@Autowired
+	private CLAUtil util;
 	
-	public static void saveChildAccountData (ChildAccount childAccount) {
+	public void saveChildAccountData (ChildAccount childAccount) {
 		try {
-			CLAUtil.saveFile(childAccount.getName(), childAccount);
+			util.saveFile(childAccount.getName() + "_child", childAccount);
 		} catch (JsonGenerationException e) {
 			
 			e.printStackTrace();
@@ -24,9 +29,9 @@ public class SaveData {
 		}	
 	}
 	
-	public static void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) {
+	public void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) {
 		try {
-			CLAUtil.saveFile(parentAccount.getName(), parentAccount);
+			util.saveFile(parentAccount.getName() + "_parent", parentAccount);
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {

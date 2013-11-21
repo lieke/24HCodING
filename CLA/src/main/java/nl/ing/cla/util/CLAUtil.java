@@ -1,27 +1,31 @@
 package nl.ing.cla.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-
+import org.apache.commons.io.FileUtils;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
+import org.springframework.stereotype.Component;
 
-public class CLAUtil {	
-	
-	private final static String DATA_LOCATION = "c:\\temp\\";
-	
-	private static String objectToJSON(Object obj) throws JsonGenerationException, JsonMappingException, IOException {
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+
+@Component
+public class CLAUtil implements Closeable {
+
+	private final File dataLocation = createTempDir();
+
+	private String objectToJSON(Object obj) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		return ow.writeValueAsString(obj);	
-		
+		return ow.writeValueAsString(obj);
+
 	}
-	
-	
-	public static void saveFile(String identifier, Object obj) throws JsonGenerationException, JsonMappingException, IOException {
+
+
+	public void saveFile(String identifier, Object obj) throws JsonGenerationException, JsonMappingException, IOException {
 		final String fileName = getFileName(identifier);
 		PrintWriter out = new PrintWriter(new File(fileName), "UTF-8");
 		out.write(objectToJSON(obj));
@@ -29,8 +33,24 @@ public class CLAUtil {
 		out.close();
 
 	}
-	
-	public static String getFileName(final String identifier) {
-		return  DATA_LOCATION + identifier + ".json";
+
+	public String getFileName(final String identifier) {
+		return new File(dataLocation, identifier + ".json").getAbsolutePath();
+	}
+
+	private static File createTempDir() {
+		try {
+			File file = Files.createTempDirectory("CLA").toFile();
+			file.deleteOnExit(); // a cowardly attempt, as there will probably be files in there
+			return file;
+		} catch (IOException e) {
+			// TODO handle this more properly
+			throw new RuntimeException("Could not create temp dir.", e);
+		}
+	}
+
+	@Override
+	public void close() throws IOException {
+		FileUtils.deleteDirectory(dataLocation);
 	}
 }

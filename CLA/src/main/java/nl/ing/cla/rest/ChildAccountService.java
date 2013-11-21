@@ -17,18 +17,25 @@ import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Path("/childAccounts")
 public class ChildAccountService {
 
+	@Autowired
+	private GetData getData;
+
+	@Autowired
+	private SaveData saveData;
+
 	
 	@GET
 	@Path("/{childName}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ChildAccount getTrackInJSON(@PathParam("childName") String childName) {
-		return GetData.getChildAccountData(childName);
+		return getData.getChildAccountData(childName);
 	}
 	
 
@@ -37,10 +44,10 @@ public class ChildAccountService {
 	@Path("/{childName}/chores")
 	public Response createChoreForChild(@PathParam("childName") String childName, Chore chore) {
 		
-		ChildAccount childAccount = GetData.getChildAccountData(childName);
+		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.addChore(chore);
 		
-		SaveData.saveChildAccountData(childAccount);
+		saveData.saveChildAccountData(childAccount);
 		
 		String result = "Chore" + chore.getName() + " added for child" + childAccount.getName();
 		return Response.status(201).entity(result).build();		
@@ -51,9 +58,9 @@ public class ChildAccountService {
 	@Path("/{childName}/chores/{choreName}")
 	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreName") String choreName, Chore chore) {
 		
-		ChildAccount childAccount = GetData.getChildAccountData(childName);
+		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateChore(choreName, chore);		
-		SaveData.saveChildAccountData(childAccount);
+		saveData.saveChildAccountData(childAccount);
 		
 		String result = "Chore" + chore.getName() + " updated for child" + childAccount.getName();
 		return Response.status(201).entity(result).build();		
