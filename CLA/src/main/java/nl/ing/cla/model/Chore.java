@@ -1,16 +1,29 @@
 package nl.ing.cla.model;
 
 public class Chore {
-	int id;
+	
+	private static int NEW_STATUS = 0;
+	private static int DONE_STATUS = 1;
+	private static int PAID_STATUS = 2;
+	
 	String name;	
 	double price;
 	int status;
-	public int getId() {
-		return id;
+	
+	public Chore(String name, double price) {
+		this.name = name;
+		this.price = price;
+		this.status = NEW_STATUS;
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	public void setAsDone() {
+		this.status = DONE_STATUS;
 	}
+	
+	public void setAsPaid() {
+		this.status = PAID_STATUS;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -29,6 +42,5 @@ public class Chore {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
 
 }
