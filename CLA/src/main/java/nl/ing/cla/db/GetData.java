@@ -11,7 +11,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.ParentAccount;
-import nl.ing.cla.model.ParentAccountSimple;
+import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.util.CLAUtil;
 
 public class GetData {
@@ -34,11 +34,11 @@ public class GetData {
 
 	public static ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
 		final String fileName = CLAUtil.getFileName(name);
-		ParentAccountSimple parentAccountSimple;
+		DataFileBasedParentAccount parentAccountSimple;
 		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 		
 		ObjectMapper mapper = new ObjectMapper();
-		parentAccountSimple = mapper.readValue(new File(fileName), ParentAccountSimple.class);
+		parentAccountSimple = mapper.readValue(new File(fileName), DataFileBasedParentAccount.class);
 		
 		for (String childName: parentAccountSimple.getChildNames()) {
 			ChildAccount childAccount = getChildAccountData (childName);

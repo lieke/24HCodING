@@ -3,21 +3,10 @@ package nl.ing.cla.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParentAccount {	
-	String accountNumber;
-	double balance;
-	String name;
-	int age;
+public class ParentAccount extends ParentAccountBase {	
 	List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 	
-	public ParentAccount(String accountNumber, double balance, String name, int age){
-		this.accountNumber = accountNumber;
-		this.balance = balance;		
-		this.name = name;
-		this.age = age;		
-	}
-	
-	public ParentAccount(ParentAccountSimple parentAccountSimple, List<ChildAccount> childAccounts) {
+	public ParentAccount(DataFileBasedParentAccount parentAccountSimple, List<ChildAccount> childAccounts) {
 		this.accountNumber = parentAccountSimple.getAccountNumber();
 		this.balance = parentAccountSimple.getBalance();
 		this.name = parentAccountSimple.getName();
@@ -25,35 +14,10 @@ public class ParentAccount {
 		this.childaccounts = childAccounts;
 	}
 
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
+	public ParentAccount(String accountNumber, double balance, String name, int age) {
 		this.accountNumber = accountNumber;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
 		this.age = age;
 	}
 
