@@ -58,6 +58,10 @@ public class ChildAccount {
 		this.choreList = choreList;
 	}
 
+	public ChildAccount(){
+		
+	}
+	
 	public ChildAccount(String accountNumber, double balance, String name, int age){
 		this.accountNumber = accountNumber;
 		this.balance = balance;

@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import nl.ing.cla.db.GetData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 
@@ -34,8 +35,7 @@ public class ChildAccountService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ChildAccount getTrackInJSON(@PathParam("childName") String childName) {
 
-		ChildAccount ca = new ChildAccount("C001", 20.5, childName, 6);
-		return ca;
+		return GetData.getChildAccountData(childName);
 	}
 	
 
