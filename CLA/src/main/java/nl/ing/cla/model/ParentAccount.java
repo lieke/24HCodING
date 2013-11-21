@@ -3,30 +3,19 @@ package nl.ing.cla.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParentAccount {
-
-	int id;
+public class ParentAccount {	
 	String accountNumber;
 	double balance;
 	String name;
 	int age;
 	List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 	
-	public ParentAccount(int id, String accountNumber, double balance, String name, int age){
+	public ParentAccount(String accountNumber, double balance, String name, int age){
 		this.accountNumber = accountNumber;
-		this.balance = balance;
-		this.id = id;
+		this.balance = balance;		
 		this.name = name;
 		this.age = age;
 		
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getAccountNumber() {

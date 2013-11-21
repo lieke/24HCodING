@@ -22,17 +22,17 @@ public class ChildAccountService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ChildAccount getTrackInJSON() {
 
-		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
+		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
 		return ca;
 
 	}
 	
 	@GET
-	@Path("/{childAcountId}")
+	@Path("/{childName}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ChildAccount getTrackInJSON(@PathParam("childAcountId") int childAcountId) {
+	public ChildAccount getTrackInJSON(@PathParam("childName") String childName) {
 
-		ChildAccount ca = new ChildAccount(childAcountId, "C001", 20.5, "LISA", 6);
+		ChildAccount ca = new ChildAccount("C001", 20.5, childName, 6);
 		return ca;
 	}
 	
