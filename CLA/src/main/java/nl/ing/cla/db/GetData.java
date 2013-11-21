@@ -17,7 +17,7 @@ import nl.ing.cla.util.CLAUtil;
 public class GetData {
 	
 	public static ChildAccount getChildAccountData (final String name) {
-		final String fileName = CLAUtil.getFileName(name);
+		final String fileName = CLAUtil.getFileName(name + "_child");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			ChildAccount childAccount = mapper.readValue(new File(fileName), ChildAccount.class);
@@ -33,7 +33,7 @@ public class GetData {
 	}
 
 	public static ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
-		final String fileName = CLAUtil.getFileName(name);
+		final String fileName = CLAUtil.getFileName(name + "_parent");
 		DataFileBasedParentAccount parentAccountSimple;
 		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 		

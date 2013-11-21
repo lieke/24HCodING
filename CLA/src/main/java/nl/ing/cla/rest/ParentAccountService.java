@@ -18,30 +18,16 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/json/parentAccount")
+@Path("/parentAccounts")
 public class ParentAccountService {
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public ParentAccount getTrackInJSON() {
-
-		ParentAccount pa = null;
-		try {
-			pa = GetData.getParentAccountData("FRANCOIS");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return pa;
-	}
-	
 	@GET
 	@Path("/{parentName}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParentAccount getTrackInJSON(@PathParam("parentName") String parentName) {
 		ParentAccount pa = null;
 		try {
-			pa = GetData.getParentAccountData("FRANCOIS");
+			pa = GetData.getParentAccountData(parentName);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

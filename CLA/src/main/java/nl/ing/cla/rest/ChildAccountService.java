@@ -20,14 +20,9 @@ import nl.ing.cla.model.Chore;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/json/childAccount")
+@Path("/childAccounts")
 public class ChildAccountService {
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public ChildAccount getTrackInJSON() {
-		return GetData.getChildAccountData("LISA");
-	}
 	
 	@GET
 	@Path("/{childName}")
@@ -39,7 +34,7 @@ public class ChildAccountService {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/{childName}/chore")
+	@Path("/{childName}/chores")
 	public Response createChoreForChild(@PathParam("childName") String childName, Chore chore) {
 		
 		ChildAccount childAccount = GetData.getChildAccountData(childName);
@@ -53,7 +48,7 @@ public class ChildAccountService {
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/{childName}/chore/{choreName}")
+	@Path("/{childName}/chores/{choreName}")
 	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreName") String choreName, Chore chore) {
 		
 		ChildAccount childAccount = GetData.getChildAccountData(childName);
@@ -64,13 +59,6 @@ public class ChildAccountService {
 		return Response.status(201).entity(result).build();		
 	}
 	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createTrackInJSON(Track track) {
-
-		String result = "Child saved : " + track;
-		return Response.status(201).entity(result).build();
-		
-	}
+	
 	
 }
