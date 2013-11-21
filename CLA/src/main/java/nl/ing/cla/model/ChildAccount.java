@@ -1,5 +1,8 @@
 package nl.ing.cla.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChildAccount {
 
 	int id;
@@ -7,6 +10,7 @@ public class ChildAccount {
 	double balance;
 	String name;
 	int age;
+	List<Chore> choreList = new ArrayList<Chore>();
 	
 	public int getId() {
 		return id;
