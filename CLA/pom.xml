@@ -8,6 +8,10 @@
 	<name>Child Labour App</name>
 	<url>http://maven.apache.org</url>
 
+    <properties>
+        <tomcat7.port>8080</tomcat7.port>
+    </properties>
+
 	<repositories>
 		<repository>
 			<id>maven2-repository.java.net</id>
@@ -85,6 +89,13 @@
 			</exclusions>
 		</dependency>
 
+        <dependency>
+            <!-- We need this for our CORS filter. -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
 
 	</dependencies>
 
@@ -98,6 +109,30 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+
+            <!-- Used for running inside an embedded tomcat.
+                 Run with `mvn tomcat7:run`. -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>${tomcat7.port}</port>
+                    <path>/CLA</path>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.derby</groupId>
+                        <artifactId>derby</artifactId>
+                        <version>10.10.1.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.mail</groupId>
+                        <artifactId>mail</artifactId>
+                        <version>1.4.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 
