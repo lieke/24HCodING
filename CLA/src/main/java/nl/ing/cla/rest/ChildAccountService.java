@@ -24,17 +24,13 @@ public class ChildAccountService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ChildAccount getTrackInJSON() {
-
-		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
-		return ca;
-
+		return GetData.getChildAccountData("LISA");
 	}
 	
 	@GET
 	@Path("/{childName}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ChildAccount getTrackInJSON(@PathParam("childName") String childName) {
-
 		return GetData.getChildAccountData(childName);
 	}
 	

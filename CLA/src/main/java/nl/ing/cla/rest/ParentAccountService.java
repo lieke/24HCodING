@@ -1,19 +1,18 @@
 package nl.ing.cla.rest;
 
-import javax.ws.rs.Consumes;
+import java.io.IOException;
+
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import nl.ing.cla.model.ChildAccount;
-import nl.ing.cla.model.Chore;
+import nl.ing.cla.db.GetData;
 import nl.ing.cla.model.ParentAccount;
 
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,9 +23,13 @@ public class ParentAccountService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParentAccount getTrackInJSON() {
 
-		ParentAccount pa = new ParentAccount("P001", 2000.0, "Francois", 34);
-		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
-		pa.addChildAccount(ca);
+		ParentAccount pa = null;
+		try {
+			pa = GetData.getParentAccountData("FRANCOIS");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return pa;
 	}
 	
@@ -34,10 +37,19 @@ public class ParentAccountService {
 	@Path("/{parentName}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParentAccount getTrackInJSON(@PathParam("parentName") String parentName) {
-
-		ParentAccount pa = new ParentAccount("P001", 2000.0, parentName, 34);
-		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
-		pa.addChildAccount(ca);
+		ParentAccount pa = null;
+		try {
+			pa = GetData.getParentAccountData("FRANCOIS");
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return pa;
 	}
 }
