@@ -47,7 +47,7 @@ public class ChildAccountService {
 		
 		SaveData.saveChildAccountData(childAccount);
 		
-		String result = "Chore" + chore.getName() + "added for child" + childAccount.getName();
+		String result = "Chore" + chore.getName() + " added for child" + childAccount.getName();
 		return Response.status(201).entity(result).build();		
 	}
 	
@@ -60,7 +60,7 @@ public class ChildAccountService {
 		childAccount.updateChore(choreName, chore);		
 		SaveData.saveChildAccountData(childAccount);
 		
-		String result = "Chore" + chore.getName() + "updated for child" + childAccount.getName();
+		String result = "Chore" + chore.getName() + " updated for child" + childAccount.getName();
 		return Response.status(201).entity(result).build();		
 	}
 	
