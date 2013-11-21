@@ -2,6 +2,8 @@ package nl.ing.cla.db;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -30,12 +32,22 @@ public class GetData {
 		return null;
 	}
 
-	public static ParentAccount getParentAccountData (String name) {
+	public static ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
 		final String fileName = CLAUtil.getFileName(name);
 		ParentAccountSimple parentAccountSimple;
-		ParentAccount parentAccount;
+		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 		
-		return null;
+		ObjectMapper mapper = new ObjectMapper();
+		parentAccountSimple = mapper.readValue(new File(fileName), ParentAccountSimple.class);
+		
+		for (String childName: parentAccountSimple.getChildNames()) {
+			ChildAccount childAccount = getChildAccountData (childName);
+			childaccounts.add(childAccount);
+		}
+		
+		ParentAccount parentAccount = new ParentAccount(parentAccountSimple, childaccounts);
+		
+		return parentAccount;
 		
 	}
 }

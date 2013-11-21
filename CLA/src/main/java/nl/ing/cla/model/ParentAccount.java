@@ -16,6 +16,14 @@ public class ParentAccount {
 		this.name = name;
 		this.age = age;		
 	}
+	
+	public ParentAccount(ParentAccountSimple parentAccountSimple, List<ChildAccount> childAccounts) {
+		this.accountNumber = parentAccountSimple.getAccountNumber();
+		this.balance = parentAccountSimple.getBalance();
+		this.name = parentAccountSimple.getName();
+		this.age = parentAccountSimple.getAge();
+		this.childaccounts = childAccounts;
+	}
 
 	public String getAccountNumber() {
 		return accountNumber;
