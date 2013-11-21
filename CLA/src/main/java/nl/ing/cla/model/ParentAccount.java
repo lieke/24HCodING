@@ -14,8 +14,7 @@ public class ParentAccount {
 		this.accountNumber = accountNumber;
 		this.balance = balance;		
 		this.name = name;
-		this.age = age;
-		
+		this.age = age;		
 	}
 
 	public String getAccountNumber() {
