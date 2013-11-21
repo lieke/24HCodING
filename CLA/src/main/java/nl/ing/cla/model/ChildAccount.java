@@ -11,6 +11,10 @@ public class ChildAccount {
 	int age;
 	List<Chore> choreList = new ArrayList<Chore>();
 	
+	public void addChore(Chore chore) {
+		choreList.add(chore);		
+	}
+	
 	
 	public String getAccountNumber() {
 		return accountNumber;
