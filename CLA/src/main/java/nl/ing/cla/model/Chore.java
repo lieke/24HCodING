@@ -9,7 +9,9 @@ public class Chore {
 	String name;	
 	double price;
 	int status;
-	
+	public Chore() {
+		
+	}
 	public Chore(String name, double price) {
 		this.name = name;
 		this.price = price;

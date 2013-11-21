@@ -1,5 +1,6 @@
 package nl.ing.cla.rest;
 
+
 import javax.sound.midi.Track;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
+import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 
@@ -35,16 +37,31 @@ public class ChildAccountService {
 	}
 	
 
-	@PUT
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/chore")
-	public Response createChoreForChild(Chore chore) {
+	public Response createChoreForChild(@PathParam("childName") String childName, Chore chore) {
 		
-		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
-		ca.addChore(chore);
-		String result = "Chore" + chore.getName() + "added for child" + ca.getName();
-		return Response.status(201).entity(result).build();
+		ChildAccount childAccount = GetData.getChildAccountData(childName);
+		childAccount.addChore(chore);
 		
+		SaveData.saveChildAccountData(childAccount);
+		
+		String result = "Chore" + chore.getName() + "added for child" + childAccount.getName();
+		return Response.status(201).entity(result).build();		
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{childName}/chore/{choreName}")
+	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreName") String choreName, Chore chore) {
+		
+		ChildAccount childAccount = GetData.getChildAccountData(childName);
+		childAccount.updateChore(choreName, chore);		
+		SaveData.saveChildAccountData(childAccount);
+		
+		String result = "Chore" + chore.getName() + "updated for child" + childAccount.getName();
+		return Response.status(201).entity(result).build();		
 	}
 	
 	@POST

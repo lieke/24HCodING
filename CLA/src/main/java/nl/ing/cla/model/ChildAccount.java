@@ -15,6 +15,16 @@ public class ChildAccount {
 		choreList.add(chore);		
 	}
 	
+	public void updateChore(final String name, final Chore chore) {
+		for (final Chore theChore:choreList) {
+			if (theChore.getName().equals(name)) {
+				choreList.remove(theChore);
+				choreList.add(chore);
+				return;
+			}
+		}
+		choreList.add(chore);
+	}
 	
 	public String getAccountNumber() {
 		return accountNumber;
