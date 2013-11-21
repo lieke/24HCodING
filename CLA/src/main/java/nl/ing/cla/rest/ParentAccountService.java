@@ -34,9 +34,9 @@ public class ParentAccountService {
 	@GET
 	@Path("/get/{parentAcountId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ParentAccount getTrackInJSON(@PathParam("parentAcountId") String parentAcountId) {
+	public ParentAccount getTrackInJSON(@PathParam("parentAcountId") int parentAcountId) {
 
-		ParentAccount pa = new ParentAccount(1,"P001", 2000.0, "Francois", 34);
+		ParentAccount pa = new ParentAccount(parentAcountId,"P001", 2000.0, "Francois", 34);
 		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
 		pa.addChildAccount(ca);
 		return pa;

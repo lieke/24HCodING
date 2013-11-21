@@ -31,9 +31,9 @@ public class ChildAccountService {
 	@GET
 	@Path("/get/{childAcountId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ChildAccount getTrackInJSON(@PathParam("childAcountId") String childAcountId) {
+	public ChildAccount getTrackInJSON(@PathParam("childAcountId") int childAcountId) {
 
-		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
+		ChildAccount ca = new ChildAccount(childAcountId, "C001", 20.5, "LISA", 6);
 		return ca;
 	}
 	
