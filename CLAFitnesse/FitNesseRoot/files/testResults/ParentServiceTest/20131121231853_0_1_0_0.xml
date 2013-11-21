@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20131110</FitNesseVersion>
+  <rootPath>ParentServiceTest</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>2</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>853</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: /Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/*&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;Table:smartrics.rest.fitnesse.fixture.RestFixture&lt;/span&gt;&lt;/td&gt;
+		&lt;td colspan="4"&gt;&lt;a href="http://localhost:8080"&gt;http://localhost:8080&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;GET&lt;/td&gt;
+		&lt;td&gt;&lt;a href='http://localhost:8080/RestFixtureInstallTest?rss'&gt;/RestFixtureInstallTest?rss&lt;/a&gt;&lt;/td&gt;
+		&lt;td&gt;200&lt;/td&gt;
+		&lt;td&gt;Content-Length&amp;amp;nbsp;:&amp;amp;nbsp;99&amp;lt;br/&amp;gt;Connection&amp;amp;nbsp;:&amp;amp;nbsp;close&amp;lt;br/&amp;gt;Server&amp;amp;nbsp;:&amp;amp;nbsp;FitNesse-v20131110&amp;lt;br/&amp;gt;Content-Type&amp;amp;nbsp;:&amp;amp;nbsp;text/xml&lt;/td&gt;
+		&lt;td&gt;&lt;span class="fail"&gt;//title[text()='RestFixtureInstallTest']&amp;lt;br/&amp;gt;&amp;lt;i&amp;gt;&amp;lt;span class='fit_label'&amp;gt;expected&amp;lt;/span&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;hr/&amp;gt;&amp;lt;br/&amp;gt;&amp;amp;lt;?xml&amp;amp;nbsp;version="1.0"?&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;amp;lt;rss&amp;amp;nbsp;version="2.0"&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;lt;channel&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;lt;title&amp;amp;gt;FitNesse:&amp;amp;lt;/title&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;lt;/channel&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;amp;lt;/rss&amp;amp;gt;&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;i&amp;gt;&amp;lt;span class='fit_label'&amp;gt;actual&amp;lt;/span&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;hr/&amp;gt;&amp;lt;br/&amp;gt;not&amp;amp;nbsp;found:&amp;amp;nbsp;'//title[text()='RestFixtureInstallTest']'&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;i&amp;gt;&amp;lt;span class='fit_label'&amp;gt;errors&amp;lt;/span&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>ParentServiceTest</relativePageName>
+    
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction>{id='tableTable_0_0', instruction='make', instanceName='tableTable_0', className='smartrics.rest.fitnesse.fixture.RestFixture', args=[&lt;a href="http://localhost:8080"&gt;http://localhost:8080&lt;/a&gt;]}</instruction>
+        <slimResult>pass(Table:smartrics.rest.fitnesse.fixture.RestFixture)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>tableTable_0_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>Table:smartrics.rest.fitnesse.fixture.RestFixture</evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction>{id='tableTable_0_1', instruction='call', instanceName='tableTable_0', methodName='doTable', args=[[[GET, /RestFixtureInstallTest?rss, , , //title[text()='RestFixtureInstallTest']]]]}</instruction>
+        <slimResult>fail()</slimResult>
+                <expectation>
+                    <status>fail</status>
+                    <instructionId>tableTable_0_1</instructionId>
+                              <type>TableTableExpectation</type>
+                                      </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>0</totalRunTimeInMillis>
+  
+</testResults>
+

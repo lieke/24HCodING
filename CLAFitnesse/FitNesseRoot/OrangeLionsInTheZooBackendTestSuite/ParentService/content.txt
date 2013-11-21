@@ -1,0 +1,2 @@
+|Table:smartrics.rest.fitnesse.fixture.RestFixture | http://172.16.35.203:9080 |
+| GET | /CLA/rest/json/parentAccount | | | //title[text()='RestFixtureInstallTest']|

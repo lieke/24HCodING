@@ -1,0 +1,16 @@
+
+!3 !-slim:fitnesse.slim.SlimService-!
+|'''Date: '''| 11:21:27 PM (CET) on donderdag, november 21, 2013 |
+|'''Test Page: '''|.ParentServiceTest|
+|'''Command: '''| !-java -cp fitnesse-standalone.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/commons-codec-1.2.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/commons-httpclient-3.1.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/commons-logging-1.0.4.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/fitnesse-20111025.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/hamcrest-all-1.3.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/hamcrest-core-1.1.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/jettison-1.3.2.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/junit-4.10.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/mockito-all-1.9.0.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/rhino-1.7R3.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/slf4j-api-1.6.6.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/smartrics-RestClient-2.1.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/smartrics-RestFixture-3.1-SNAPSHOT.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/stax-api-1.0.1.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/xmlpull-1.1.3.1.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/xpp3_min-1.1.4c.jar:/Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/xstream-1.4.2.jar fitnesse.slim.SlimService  8090-! |
+|'''Exit code: '''| 0 |
+|'''Time elapsed: '''| 0.94 seconds |
+
+----
+'''Standard Error:'''
+{{{ SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+nov 21, 2013 11:21:27 PM org.apache.commons.httpclient.HttpMethodBase getResponseBody
+WARNING: Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+ }}}

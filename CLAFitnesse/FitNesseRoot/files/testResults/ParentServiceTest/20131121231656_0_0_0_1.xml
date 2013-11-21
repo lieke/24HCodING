@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20131110</FitNesseVersion>
+  <rootPath>ParentServiceTest</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>2</exceptions>
+    </counts>
+    <runTimeInMillis>1091</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: /Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/*&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;Table:smartrics.rest.fitnesse.fixture.RestFixture&lt;/span&gt;&lt;/td&gt;
+		&lt;td colspan="4"&gt;&lt;a href="http://172.16.35.203:9080"&gt;http://172.16.35.203:9080&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;GET&lt;/td&gt;
+		&lt;td&gt;&lt;a href='http://172.16.35.203:9080/CLA/rest/json/parentAccount'&gt;/CLA/rest/json/parentAccount&lt;/a&gt;&lt;/td&gt;
+		&lt;td&gt;200&lt;/td&gt;
+		&lt;td&gt;Server&amp;amp;nbsp;:&amp;amp;nbsp;Apache-Coyote/1.1&amp;lt;br/&amp;gt;Access-Control-Allow-Origin&amp;amp;nbsp;:&amp;amp;nbsp;*&amp;lt;br/&amp;gt;Content-Type&amp;amp;nbsp;:&amp;amp;nbsp;application/json&amp;lt;br/&amp;gt;Transfer-Encoding&amp;amp;nbsp;:&amp;amp;nbsp;chunked&amp;lt;br/&amp;gt;Date&amp;amp;nbsp;:&amp;amp;nbsp;Thu,&amp;amp;nbsp;21&amp;amp;nbsp;Nov&amp;amp;nbsp;2013&amp;amp;nbsp;22:16:53&amp;amp;nbsp;GMT&lt;/td&gt;
+		&lt;td&gt;//title[text()='RestFixtureInstallTest'] &lt;span class="error"&gt;//title[text()='RestFixtureInstallTest']&amp;lt;br/&amp;gt;&amp;lt;hr/&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;code&amp;gt;java.lang.IllegalArgumentException:&amp;amp;nbsp;Cannot&amp;amp;nbsp;evaluate&amp;amp;nbsp;'//title[text()='RestFixtureInstallTest']'&amp;amp;nbsp;in&amp;amp;nbsp;{"childaccounts":[{"name":"LISA","balance":20.5,"age":6,"choreList":[],"accountNumber":"C001"}],"name":"Francois","balance":2000.0,"age":34,"accountNumber":"P001"}&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.support.XPathBodyTypeAdapter.equals(XPathBodyTypeAdapter.java:77)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.support.JSONBodyTypeAdapter.equals(JSONBodyTypeAdapter.java:74)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.process(RestFixture.java:1022)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.completeHttpMethodExecution(RestFixture.java:983)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.doMethod(RestFixture.java:913)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.doMethod(RestFixture.java:901)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.GET(RestFixture.java:575)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.NativeMethodAccessorImpl.invoke0(Native&amp;amp;nbsp;Method)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;java.lang.reflect.Method.invoke(Method.java:606)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.processRow(RestFixture.java:836)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.processSlimRow(RestFixture.java:1164)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.RestFixture.doTable(RestFixture.java:379)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.NativeMethodAccessorImpl.invoke0(Native&amp;amp;nbsp;Method)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;java.lang.reflect.Method.invoke(Method.java:606)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.fixtureInteraction.DefaultInteraction.methodInvoke(DefaultInteraction.java:16)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:43)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:30)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:52)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:20)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:120)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.StatementExecutor.call(StatementExecutor.java:98)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.instructions.CallInstruction.executeInternal(CallInstruction.java:35)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.instructions.Instruction.execute(Instruction.java:30)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:50)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:44)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.ListExecutor.execute(ListExecutor.java:84)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:107)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:94)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:68)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:54)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimServer.serve(SlimServer.java:40)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimService.accept(SlimService.java:116)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimService.startWithFactory(SlimService.java:52)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;fitnesse.slim.SlimService.main(SlimService.java:38)&amp;lt;br/&amp;gt;Caused&amp;amp;nbsp;by:&amp;amp;nbsp;java.lang.IllegalArgumentException:&amp;amp;nbsp;XPath&amp;amp;nbsp;expectations&amp;amp;nbsp;in&amp;amp;nbsp;JSON&amp;amp;nbsp;content&amp;amp;nbsp;are&amp;amp;nbsp;not&amp;amp;nbsp;supported&amp;amp;nbsp;anymore.&amp;amp;nbsp;Please&amp;amp;nbsp;use&amp;amp;nbsp;JavaScript&amp;amp;nbsp;expressions.&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.support.JSONBodyTypeAdapter.eval(JSONBodyTypeAdapter.java:45)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;at&amp;amp;nbsp;smartrics.rest.fitnesse.fixture.support.XPathBodyTypeAdapter.equals(XPathBodyTypeAdapter.java:72)&amp;lt;br/&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;...&amp;amp;nbsp;37&amp;amp;nbsp;more&amp;lt;br/&amp;gt;&amp;lt;/code&amp;gt;&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>ParentServiceTest</relativePageName>
+    
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction>{id='tableTable_0_0', instruction='make', instanceName='tableTable_0', className='smartrics.rest.fitnesse.fixture.RestFixture', args=[&lt;a href="http://172.16.35.203:9080"&gt;http://172.16.35.203:9080&lt;/a&gt;]}</instruction>
+        <slimResult>pass(Table:smartrics.rest.fitnesse.fixture.RestFixture)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>tableTable_0_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>Table:smartrics.rest.fitnesse.fixture.RestFixture</evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction>{id='tableTable_0_1', instruction='call', instanceName='tableTable_0', methodName='doTable', args=[[[GET, /CLA/rest/json/parentAccount, , , //title[text()='RestFixtureInstallTest']]]]}</instruction>
+        <slimResult>error()</slimResult>
+                <expectation>
+                    <status>error</status>
+                    <instructionId>tableTable_0_1</instructionId>
+                              <type>TableTableExpectation</type>
+                                      </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>0</totalRunTimeInMillis>
+  
+</testResults>
+

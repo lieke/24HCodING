@@ -1,1 +1,5 @@
-!contents -R2 -g -p -f -h
+!define TEST_SYSTEM {slim}
+
+!path /Users/liekevdpoel/Development/24HCodING/CLAFitnesse/dependencies/*
+
+ParentServiceTest
