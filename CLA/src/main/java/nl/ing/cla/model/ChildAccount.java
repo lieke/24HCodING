@@ -5,33 +5,57 @@ public class ChildAccount {
 	int id;
 	String accountNumber;
 	double balance;
-	
-	public ChildAccount(int id, String accountNumber, double balance){
-		this.accountNumber = accountNumber;
-		this.balance = balance;
-		this.id = id;
-		
-	}
+	String name;
+	int age;
 	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getAccountNumber() {
 		return accountNumber;
 	}
+
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+
 	public double getBalance() {
 		return balance;
 	}
+
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
 	
-	
+	public ChildAccount(int id, String accountNumber, double balance, String name, int age){
+		this.accountNumber = accountNumber;
+		this.balance = balance;
+		this.id = id;
+		this.age = age;
+		this.name = name;
+		
+	}
 	
 }

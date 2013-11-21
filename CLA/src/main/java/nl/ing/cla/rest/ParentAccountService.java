@@ -1,5 +1,6 @@
 package nl.ing.cla.rest;
 
+import javax.sound.midi.Track;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -9,32 +10,36 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import nl.ing.cla.model.Person;
-import nl.ing.cla.model.Track;
+import nl.ing.cla.model.ChildAccount;
+import nl.ing.cla.model.ParentAccount;
 
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/json/person")
+@Path("/json/parentAccount")
 public class ParentAccountService {
 
 	@GET
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Person getTrackInJSON() {
+	public ParentAccount getTrackInJSON() {
 
-		Person person = new Person(1, "LISA", "F", 06 );
-		return person;
+		ParentAccount pa = new ParentAccount(1,"P001", 2000.0, "Francois", 34);
+		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
+		pa.addChildAccount(ca);
+		return pa;
 
 	}
 	
 	@GET
-	@Path("/get/{personId}")
+	@Path("/get/{parentAcountId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Person getTrackInJSON(@PathParam("trackId") String trackId) {
+	public ParentAccount getTrackInJSON(@PathParam("parentAcountId") String parentAcountId) {
 
-		Person person = new Person(1, "LISA", "F", 06 );
-		return person;
+		ParentAccount pa = new ParentAccount(1,"P001", 2000.0, "Francois", 34);
+		ChildAccount ca = new ChildAccount(1, "C001", 20.5, "LISA", 6);
+		pa.addChildAccount(ca);
+		return pa;
 	}
 	
 
