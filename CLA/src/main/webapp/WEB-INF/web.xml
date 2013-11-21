@@ -33,5 +33,15 @@
 		<servlet-name>jersey-servlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+    
+    <filter>
+        <filter-name>CORSFilter</filter-name>
+        <filter-class>nl.ing.cla.web.CORSFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CORSFilter</filter-name>
+        <servlet-name>jersey-servlet</servlet-name>
+    </filter-mapping>
 
 </web-app>

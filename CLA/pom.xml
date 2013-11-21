@@ -89,6 +89,13 @@
 			</exclusions>
 		</dependency>
 
+        <dependency>
+            <!-- We need this for our CORS filter. -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
 
 	</dependencies>
 
