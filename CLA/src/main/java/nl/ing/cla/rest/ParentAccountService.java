@@ -20,7 +20,6 @@ import org.springframework.stereotype.Component;
 public class ParentAccountService {
 
 	@GET
-	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParentAccount getTrackInJSON() {
 
@@ -32,7 +31,7 @@ public class ParentAccountService {
 	}
 	
 	@GET
-	@Path("/get/{parentAcountId}")
+	@Path("/{parentAcountId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParentAccount getTrackInJSON(@PathParam("parentAcountId") int parentAcountId) {
 
@@ -44,7 +43,6 @@ public class ParentAccountService {
 	
 
 	@POST
-	@Path("/post")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createTrackInJSON(Track track) {
 
