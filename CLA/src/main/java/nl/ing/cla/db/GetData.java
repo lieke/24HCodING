@@ -9,6 +9,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.ParentAccount;
+import nl.ing.cla.model.ParentAccountSimple;
 import nl.ing.cla.util.CLAUtil;
 
 public class GetData {
@@ -34,7 +35,7 @@ public class GetData {
 		ParentAccountSimple parentAccountSimple;
 		ParentAccount parentAccount;
 		
-		
+		return null;
 		
 	}
 }
