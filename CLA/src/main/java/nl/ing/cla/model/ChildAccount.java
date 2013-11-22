@@ -21,8 +21,23 @@ public class ChildAccount {
 		choreList.put(id, chore);
 	}
 	
+	public void setChoreAsDone(final long id) {
+		Chore chore = choreList.get(id);
+		chore.setAsDone();
+	}
+	
+	//NB: this method only updates status, does not transfer any of the funds or updates goal!
+	public void setChoreAsPaid(final long id) {
+		Chore chore = choreList.get(id);
+		chore.setAsPaid();
+	}
+	
 	public void updateChore(final long id, final Chore chore) {
 		choreList.put(id, chore);
+	}
+	
+	public Chore getChore(long id) {
+		return choreList.get(id);
 	}
 	
 	public void deleteChore(final long id) {
