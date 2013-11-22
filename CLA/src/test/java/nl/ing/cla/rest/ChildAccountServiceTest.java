@@ -65,5 +65,45 @@ public class ChildAccountServiceTest {
 		assertEquals(ca.getChoreList().values().size(), 1);
 	}
 	
+	@Test
+	public void testUpdateChore(){
+		Chore chore = new Chore();
+		chore.setName("car wash");
+		chore.setPrice(2.5);
+		chore.setDate("20 Nov 2013");
+		chore.setStatus(0);
+		ca.addChore(chore);
+		
+		Chore chore2 = new Chore();
+		chore2.setName("car wash");
+		chore2.setPrice(5.0);
+		chore2.setDate("20 Nov 2013");
+		chore2.setStatus(0);
+		chore2.setId(chore.getId());
+		
+		double price = ca.getChoreList().values().iterator().next().getPrice();
+		assertEquals(price == 2.5, true);
+		
+		childAccountService.updateOrCreateChoreForChild("LISA", chore.getId(), chore2);
+		
+		price = ca.getChoreList().values().iterator().next().getPrice();
+		assertNotNull(price);
+		assertEquals(price == 5.0, true);
+	}
+	
+	
+	@Test
+	public void testDeleteChore(){
+		Chore chore = new Chore();
+		chore.setName("car wash");
+		chore.setPrice(2.5);
+		chore.setDate("20 Nov 2013");
+		chore.setStatus(0);
+		ca.addChore(chore);
+		
+		childAccountService.deleteChoreForChild("LISA", chore.getId());
+		
+		assertEquals(ca.getChoreList().isEmpty(), true);
+	}
 
 }
