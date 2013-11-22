@@ -51,13 +51,13 @@ public class DataInitialiser {
 		ca.addChore(chore);
 		
 		SavingGoal goal = new SavingGoal();
-		goal.setGoal(10);
-		goal.setSaved(2);
+		goal.setGoal(50);
+		goal.setSaved(45);
 		ca.addGoal(goal);
-		
+
 		goal = new SavingGoal();
-		goal.setGoal(5);
-		goal.setSaved(0);		
+		goal.setGoal(45);
+		goal.setSaved(20);		
 		ca.addGoal(goal);
 
 		if(getData.getChildAccountData("LISA") == null){
