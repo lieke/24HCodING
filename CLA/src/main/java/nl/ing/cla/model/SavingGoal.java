@@ -2,8 +2,8 @@ package nl.ing.cla.model;
 
 
 public class SavingGoal {
-	float saved;
-	float goal;	
+	double saved;
+	double goal;	
 	long id;
 	
 	public SavingGoal() {
@@ -24,16 +24,16 @@ public class SavingGoal {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public void setSaved(float saved) {
+	public void setSaved(double saved) {
 		this.saved = saved;
 	}
-	public float getSaved() {
+	public double getSaved() {
 		return saved;
 	}
-	public float getGoal() {
+	public double getGoal() {
 		return goal;
 	}
-	public void setGoal(float goal) {
+	public void setGoal(double goal) {
 		this.goal = goal;
 	}
 

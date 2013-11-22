@@ -10,6 +10,7 @@ import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
+import nl.ing.cla.model.SavingGoal;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -104,6 +105,16 @@ public class ChildAccountServiceTest {
 		childAccountService.deleteChoreForChild("LISA", chore.getId());
 		
 		assertEquals(ca.getChoreList().isEmpty(), true);
+	}
+	
+	@Test
+	public void testCreateGoal(){
+		SavingGoal goal = new SavingGoal();
+		goal.setGoal(2.5);
+		goal.setSaved(1.4);
+		
+		childAccountService.createSavingGoalForChild("LISA", goal);
+		assertEquals(ca.getGoalList().values().isEmpty(), false);
 	}
 
 }
