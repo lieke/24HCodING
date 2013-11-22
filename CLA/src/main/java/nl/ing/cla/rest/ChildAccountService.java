@@ -1,6 +1,7 @@
 package nl.ing.cla.rest;
 
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
+import nl.ing.cla.exception.ErrorException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 import nl.ing.cla.model.SavingGoal;
@@ -56,7 +58,7 @@ public class ChildAccountService {
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.addChore(chore);
 		
-		saveData.saveChildAccountData(childAccount);	
+		saveChildAccount(childAccount);	
 		
 		return Response.status(201).entity(chore.getId()).build();		
 	}
@@ -68,7 +70,7 @@ public class ChildAccountService {
 		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateChore(choreID, chore);		
-		saveData.saveChildAccountData(childAccount);
+		saveChildAccount(childAccount);
 		
 		return Response.status(201).entity(chore).build();		
 	}
@@ -79,8 +81,7 @@ public class ChildAccountService {
 		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.deleteChore(choreID);	
-		saveData.saveChildAccountData(childAccount);
-		
+		saveChildAccount(childAccount);
 		return Response.status(201).entity("Delete chore with ID=" + choreID + " successfully.").build();		
 	}
 	
@@ -92,7 +93,7 @@ public class ChildAccountService {
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.addGoal(goal);
 		
-		saveData.saveChildAccountData(childAccount);
+		saveChildAccount(childAccount);
 		
 		return Response.status(201).entity(goal.getId()).build();		
 	}
@@ -111,7 +112,7 @@ public class ChildAccountService {
 	public Response updateOrCreateSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateGoal(goalID, goal);	
-		saveData.saveChildAccountData(childAccount);
+		saveChildAccount(childAccount);
 		
 		return Response.status(201).entity(goal).build();		
 	}
@@ -121,10 +122,18 @@ public class ChildAccountService {
 	public Response deleteSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID) {		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.deleteGoal(goalID);
-		saveData.saveChildAccountData(childAccount);
+		saveChildAccount(childAccount);
 		
 		return Response.status(201).entity("Delete saving goal with ID=" + goalID + " successfully.").build();		
 	}
 	
+	
+	private void saveChildAccount(ChildAccount childAccount) {
+		try {
+			saveData.saveChildAccountData(childAccount);
+		} catch (IOException e) {
+			throw new ErrorException(e);
+		}
+	}
 	
 }

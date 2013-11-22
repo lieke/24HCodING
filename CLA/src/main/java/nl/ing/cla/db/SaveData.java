@@ -7,7 +7,6 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.DataFileBasedParentAccount;
-import nl.ing.cla.model.ParentAccount;
 import nl.ing.cla.util.CLAUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,29 +17,13 @@ public class SaveData {
 	@Autowired
 	private CLAUtil util;
 	
-	public void saveChildAccountData (ChildAccount childAccount) {
-		try {
-			util.saveFile(childAccount.getName() + "_child", childAccount);
-		} catch (JsonGenerationException e) {
+	public void saveChildAccountData (ChildAccount childAccount) throws JsonGenerationException, JsonMappingException, IOException {
+		util.saveFile(childAccount.getName() + "_child", childAccount);
 			
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
 	}
 	
-	public void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) {
-		try {
-			util.saveFile(parentAccount.getName() + "_parent", parentAccount);
-		} catch (JsonGenerationException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
+	public void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) throws JsonGenerationException, JsonMappingException, IOException {		
+		util.saveFile(parentAccount.getName() + "_parent", parentAccount);		
 	}
 	
 	

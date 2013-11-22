@@ -8,6 +8,8 @@ import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.model.ParentAccount;
 import nl.ing.cla.model.SavingGoal;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +30,7 @@ public class DataInitialiser {
 	public static List<ParentAccount> parentAccounts = new ArrayList<ParentAccount>();
 
 	@PostConstruct
-	public void init() {
+	public void init() throws JsonGenerationException, JsonMappingException, IOException {
 		DataFileBasedParentAccount simpleParentAccount = new DataFileBasedParentAccount();
 		simpleParentAccount.setAccountNumber("P001");
 		simpleParentAccount.setAge(34);

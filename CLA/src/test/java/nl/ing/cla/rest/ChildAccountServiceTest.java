@@ -4,14 +4,19 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
+import java.io.IOException;
+
 import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
+import nl.ing.cla.exception.ErrorException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 import nl.ing.cla.model.SavingGoal;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +24,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ChildAccountServiceTest {
@@ -36,17 +43,29 @@ public class ChildAccountServiceTest {
 	ChildAccount ca = null;
 	
 	@Before
-	public void setup(){
+	public void setup() throws JsonGenerationException, JsonMappingException, IOException{
 		ca = new ChildAccount();
 		ca.setAccountNumber("C001");
 		ca.setAge(6);
 		ca.setBalance(20.0);
-		//ca.setChoreList(choreList);
 		ca.setName("LISA");
 		when(getData.getChildAccountData("LISA")).thenReturn(ca);
 		Mockito.doNothing().when(saveData).saveChildAccountData(ca);
 	}
 	
+	@Test
+	public void testSaveDataWithException() throws JsonGenerationException, JsonMappingException, IOException {
+		doThrow(new IOException()).when(saveData).saveChildAccountData(any(ChildAccount.class));
+		try {
+			childAccountService.createChoreForChild("LISA", new Chore());
+		} catch (ErrorException e) {
+			Response response = e.getResponse();
+			assertEquals(response.getStatus(), Response.Status.BAD_REQUEST.getStatusCode());
+		}		
+		
+	}
+	
+
 	@Test
 	public void testGetChild(){
 		ChildAccount childAcount = childAccountService.getTrackInJSON("LISA");
