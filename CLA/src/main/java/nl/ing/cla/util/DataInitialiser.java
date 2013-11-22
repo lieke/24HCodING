@@ -1,7 +1,8 @@
 package nl.ing.cla.util;
 
-import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
+import nl.ing.cla.db.file.FileGetData;
+import nl.ing.cla.db.file.FileSaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 import nl.ing.cla.model.DataFileBasedParentAccount;
@@ -22,7 +23,7 @@ import java.util.List;
 @Component
 public class DataInitialiser {
 	@Autowired
-	private GetData getData;
+	private FileGetData getData;
 
 	@Autowired
 	private SaveData saveData;

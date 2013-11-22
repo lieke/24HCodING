@@ -1,31 +1,21 @@
 package nl.ing.cla.db;
 
-import java.io.IOException;
-
+import nl.ing.cla.model.ChildAccount;
+import nl.ing.cla.model.DataFileBasedParentAccount;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import nl.ing.cla.model.ChildAccount;
-import nl.ing.cla.model.DataFileBasedParentAccount;
-import nl.ing.cla.util.CLAUtil;
+import java.io.IOException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+/**
+ * Created with IntelliJ IDEA.
+ * User: adriaan
+ * Date: 22-11-2013
+ * Time: 06:05
+ * To change this template use File | Settings | File Templates.
+ */
+public interface SaveData {
+	void saveChildAccountData (ChildAccount childAccount) throws JsonGenerationException, JsonMappingException, IOException;
 
-@Component
-public class SaveData {
-	@Autowired
-	private CLAUtil util;
-	
-	public void saveChildAccountData (ChildAccount childAccount) throws JsonGenerationException, JsonMappingException, IOException {
-		util.saveFile(childAccount.getName() + "_child", childAccount);
-			
-	}
-	
-	public void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) throws JsonGenerationException, JsonMappingException, IOException {		
-		util.saveFile(parentAccount.getName() + "_parent", parentAccount);		
-	}
-	
-	
-	
+	void saveDataFileBasedParentAccountData (DataFileBasedParentAccount parentAccount) throws JsonGenerationException, JsonMappingException, IOException;
 }

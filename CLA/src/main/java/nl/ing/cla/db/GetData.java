@@ -1,58 +1,21 @@
 package nl.ing.cla.db;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.ParentAccount;
-import nl.ing.cla.model.DataFileBasedParentAccount;
-import nl.ing.cla.util.CLAUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
 
-@Component
-public class GetData {
-	@Autowired
-	private CLAUtil util;
-	
-	public ChildAccount getChildAccountData (final String name) {
-		final String fileName = util.getFileName(name + "_child");
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			ChildAccount childAccount = mapper.readValue(new File(fileName), ChildAccount.class);
-			return childAccount;
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+import java.io.IOException;
 
-	public ParentAccount getParentAccountData (String name) throws JsonParseException, JsonMappingException, IOException {
-		final String fileName = util.getFileName(name + "_parent");
-		DataFileBasedParentAccount parentAccountSimple;
-		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
-		
-		ObjectMapper mapper = new ObjectMapper();
-		parentAccountSimple = mapper.readValue(new File(fileName), DataFileBasedParentAccount.class);
-		
-		for (String childName: parentAccountSimple.getChildNames()) {
-			ChildAccount childAccount = getChildAccountData (childName);
-			childaccounts.add(childAccount);
-		}
-		
-		ParentAccount parentAccount = new ParentAccount(parentAccountSimple, childaccounts);
-		
-		return parentAccount;
-		
-	}
+/**
+ * Created with IntelliJ IDEA.
+ * User: adriaan
+ * Date: 22-11-2013
+ * Time: 06:03
+ * To change this template use File | Settings | File Templates.
+ */
+public interface GetData {
+	ChildAccount getChildAccountData (String name);
+
+	ParentAccount getParentAccountData(String name) throws JsonParseException, JsonMappingException, IOException;
 }
