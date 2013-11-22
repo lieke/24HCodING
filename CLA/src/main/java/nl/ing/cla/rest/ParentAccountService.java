@@ -13,7 +13,6 @@ import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
-import nl.ing.cla.db.file.FileSaveData;
 import nl.ing.cla.exception.ErrorException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
@@ -73,7 +72,7 @@ public class ParentAccountService {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{parentName}/completes/{choreID}/for/{childName}")
-	public Response createChoreForChild(
+	public Response completeChoreForChild(
 			@PathParam("parentName") String parentName,
 			@PathParam("choreID") long choreID,
 			@PathParam("childName") String childName) {

@@ -2,6 +2,8 @@ package nl.ing.cla.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -10,7 +12,6 @@ import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
-import nl.ing.cla.db.file.FileSaveData;
 import nl.ing.cla.exception.ErrorException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
@@ -25,8 +26,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ChildAccountServiceTest {
