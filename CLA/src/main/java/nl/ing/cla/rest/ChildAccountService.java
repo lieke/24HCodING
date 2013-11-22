@@ -1,6 +1,8 @@
 package nl.ing.cla.rest;
 
 
+import java.util.Map;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -39,6 +41,12 @@ public class ChildAccountService {
 		return getData.getChildAccountData(childName);
 	}
 	
+	@GET
+	@Path("/{childName}/chores")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Map<Long, Chore> getAllChores(@PathParam("childName") String childName) {		
+		return getData.getChildAccountData(childName).getChoreList();
+	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

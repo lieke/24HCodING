@@ -1,8 +1,10 @@
 package nl.ing.cla.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class SavingGoal {
 	float saved;
-	float goal;
+	float goal;	
 	long id;
 	
 	public SavingGoal() {
@@ -18,6 +20,7 @@ public class SavingGoal {
 	public long getId() {
 		return id;
 	}
+	@JsonIgnore	
 	public void setId(long id) {
 		this.id = id;
 	}
