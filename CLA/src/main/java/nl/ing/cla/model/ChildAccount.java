@@ -1,31 +1,43 @@
 package nl.ing.cla.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import nl.ing.cla.util.CLAUtil;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ChildAccount {
-
+	
 	String accountNumber;
 	double balance;
 	String name;
 	int age;
-	List<Chore> choreList = new ArrayList<Chore>();
 	
-	public void addChore(Chore chore) {
-		choreList.add(chore);		
+	Map<Long, Chore> choreList = new LinkedHashMap<Long, Chore>();
+	Map<Long, SavingGoal> goalList = new LinkedHashMap<Long, SavingGoal>();
+	
+	public void addChore(final Chore chore) {
+		final long id = CLAUtil.giveMeAUniqueId();
+		chore.setId(id);
+		choreList.put(id, chore);
 	}
 	
-	public void updateChore(final String name, final Chore chore) {
-		for (final Chore theChore:choreList) {
-			if (theChore.getName().equals(name)) {
-				choreList.remove(theChore);
-				choreList.add(chore);
-				return;
-			}
-		}
-		choreList.add(chore);
+	public void updateChore(final long id, final Chore chore) {
+		choreList.put(id, chore);
 	}
 	
+	public void addGoal(final SavingGoal savingGoal) {
+		final long id =  CLAUtil.giveMeAUniqueId();
+		savingGoal.setId(id);
+		goalList.put(id, savingGoal);
+	}
+	
+	public void updateGoal(final long id, final SavingGoal savingGoal) {
+		goalList.put(id, savingGoal);
+	}
+	
+
 	public String getAccountNumber() {
 		return accountNumber;
 	}
@@ -56,16 +68,22 @@ public class ChildAccount {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
+	}	
 	
-	
-	
-	public List<Chore> getChoreList() {
+	public Map<Long, Chore> getChoreList() {
 		return choreList;
 	}
 
-	public void setChoreList(List<Chore> choreList) {
+	public void setChoreList(Map<Long, Chore> choreList) {
 		this.choreList = choreList;
+	}
+
+	public Map<Long, SavingGoal> getGoalList() {
+		return goalList;
+	}
+
+	public void setGoalList(Map<Long, SavingGoal> goalList) {
+		this.goalList = goalList;
 	}
 
 	public ChildAccount(){

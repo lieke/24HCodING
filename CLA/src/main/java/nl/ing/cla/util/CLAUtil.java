@@ -20,9 +20,9 @@ public class CLAUtil implements Closeable {
 
 	private final File dataLocation = createTempDir();
 	
-	private AtomicLong ID = new AtomicLong();
+	private static AtomicLong ID = new AtomicLong();
 	
-	public long giveMeAUniqueId() {
+	public static long giveMeAUniqueId() {
 		return ID.incrementAndGet();
 	}
 

@@ -15,6 +15,7 @@ import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
+import nl.ing.cla.model.SavingGoal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -46,23 +47,45 @@ public class ChildAccountService {
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.addChore(chore);
 		
-		saveData.saveChildAccountData(childAccount);
+		saveData.saveChildAccountData(childAccount);	
 		
-		String result = "Chore" + chore.getName() + " added for child" + childAccount.getName();
-		return Response.status(201).entity(result).build();		
+		return Response.status(201).entity(chore.getId()).build();		
 	}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/{childName}/chores/{choreName}")
-	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreName") String choreName, Chore chore) {
+	@Path("/{childName}/chores/{choreID}")
+	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreID") long choreID, Chore chore) {
 		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
-		childAccount.updateChore(choreName, chore);		
+		childAccount.updateChore(choreID, chore);		
 		saveData.saveChildAccountData(childAccount);
 		
-		String result = "Chore" + chore.getName() + " updated for child" + childAccount.getName();
-		return Response.status(201).entity(result).build();		
+		return Response.status(201).entity(chore).build();		
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{childName}/goals")
+	public Response createSavingGoalForChild(@PathParam("childName") String childName, SavingGoal goal) {
+		
+		ChildAccount childAccount = getData.getChildAccountData(childName);
+		childAccount.addGoal(goal);
+		
+		saveData.saveChildAccountData(childAccount);
+		
+		return Response.status(201).entity(goal.getId()).build();		
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{childName}/goals/{goalID}")
+	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
+		ChildAccount childAccount = getData.getChildAccountData(childName);
+		childAccount.updateGoal(goalID, goal);	
+		saveData.saveChildAccountData(childAccount);
+		
+		return Response.status(201).entity(goal).build();		
 	}
 	
 	
