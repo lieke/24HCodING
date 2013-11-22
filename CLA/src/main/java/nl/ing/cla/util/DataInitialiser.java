@@ -2,20 +2,13 @@ package nl.ing.cla.util;
 
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.db.file.FileGetData;
-import nl.ing.cla.db.file.FileSaveData;
-import nl.ing.cla.model.ChildAccount;
-import nl.ing.cla.model.Chore;
-import nl.ing.cla.model.DataFileBasedParentAccount;
-import nl.ing.cla.model.ParentAccount;
-import nl.ing.cla.model.SavingGoal;
-
+import nl.ing.cla.model.*;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
