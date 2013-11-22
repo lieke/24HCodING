@@ -12,8 +12,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import nl.ing.cla.db.GetData;
+import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
+import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.model.ParentAccount;
 
 import org.codehaus.jackson.JsonParseException;
@@ -27,6 +29,9 @@ public class ParentAccountService {
 
 	@Autowired
 	private GetData getData;
+	
+	@Autowired
+	private SaveData saveData;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -89,10 +94,15 @@ public class ParentAccountService {
 
 		// complete chore (change status)
 		chore.setAsPaid();
+		
+		child.updateChore(choreID, chore);
 		// transfer money from parent to child account
 		parent.transferTo(chore.getPrice(), child);
+		
+		saveData.saveChildAccountData(child);	
+		saveData.saveDataFileBasedParentAccountData(new DataFileBasedParentAccount(parent));
 
-		return Response.status(201).entity(child.getName() + "got paid for another goal!!").build();
+		return Response.status(201).entity(child.getName() + " got paid for another chore!!").build();
 	}
 
 }

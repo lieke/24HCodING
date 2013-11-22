@@ -7,7 +7,9 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.DataFileBasedParentAccount;
+import nl.ing.cla.model.ParentAccount;
 import nl.ing.cla.util.CLAUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,5 +42,7 @@ public class SaveData {
 			e.printStackTrace();
 		}	
 	}
+	
+	
 	
 }
