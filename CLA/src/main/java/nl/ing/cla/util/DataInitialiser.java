@@ -6,6 +6,7 @@ import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.model.ParentAccount;
+import nl.ing.cla.model.SavingGoal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -44,6 +45,16 @@ public class DataInitialiser {
 		chore.setPrice(3.5);
 		chore.setStatus(Chore.NEW_STATUS);
 		ca.addChore(chore);
+		
+		SavingGoal goal = new SavingGoal();
+		goal.setGoal(10);
+		goal.setSaved(2);
+		ca.addGoal(goal);
+		
+		goal = new SavingGoal();
+		goal.setGoal(5);
+		goal.setSaved(0);		
+		ca.addGoal(goal);
 
 		if(getData.getChildAccountData("LISA") == null){
 			saveData.saveChildAccountData(ca);
