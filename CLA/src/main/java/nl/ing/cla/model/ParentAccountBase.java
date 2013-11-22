@@ -1,9 +1,9 @@
 package nl.ing.cla.model;
 
 
-public abstract class ParentAccountBase {
+public abstract class ParentAccountBase extends Account {
 	String accountNumber;
-	double balance;
+	
 	String name;
 	int age;
 	
@@ -16,14 +16,6 @@ public abstract class ParentAccountBase {
 
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
 	}
 
 	public String getName() {

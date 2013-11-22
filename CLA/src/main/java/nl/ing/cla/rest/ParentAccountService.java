@@ -75,6 +75,17 @@ public class ParentAccountService {
 			ParentAccount parent = getData.getParentAccountData(parentName);
 			ChildAccount child = getData.getChildAccountData(childName);
 			Chore chore = child.getChore(choreID);
+			
+			//complete chore (change status)
+			chore.setAsPaid();
+			//transfer money from parent to child account
+			parent.transferTo(chore.getPrice(), child);
+			//update goal of child
+			
+			
+			
+			
+			
 
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block

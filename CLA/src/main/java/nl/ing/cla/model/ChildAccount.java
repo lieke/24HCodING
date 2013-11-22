@@ -6,9 +6,8 @@ import java.util.Map;
 import nl.ing.cla.util.CLAUtil;
 
 
-public class ChildAccount {	
+public class ChildAccount extends Account {	
 	String accountNumber;
-	double balance;
 	String name;
 	int age;
 	
@@ -66,14 +65,6 @@ public class ChildAccount {
 		this.accountNumber = accountNumber;
 	}
 
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -116,6 +107,5 @@ public class ChildAccount {
 		this.age = age;
 		this.name = name;
 		
-	}
-	
+	}	
 }
