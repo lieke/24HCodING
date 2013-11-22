@@ -6,8 +6,7 @@ import java.util.Map;
 import nl.ing.cla.util.CLAUtil;
 
 
-public class ChildAccount {
-	
+public class ChildAccount {	
 	String accountNumber;
 	double balance;
 	String name;
@@ -16,7 +15,7 @@ public class ChildAccount {
 	Map<Long, Chore> choreList = new LinkedHashMap<Long, Chore>();
 	Map<Long, SavingGoal> goalList = new LinkedHashMap<Long, SavingGoal>();
 	
-	public void addChore(final Chore chore) {
+	public void addChore(Chore chore) {
 		final long id = CLAUtil.giveMeAUniqueId();
 		chore.setId(id);
 		choreList.put(id, chore);

@@ -1,9 +1,6 @@
 package nl.ing.cla.model;
 
-import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 public class Chore {
 	
@@ -11,33 +8,23 @@ public class Chore {
 	public final static int DONE_STATUS = 1;
 	public final static int PAID_STATUS = 2;
 	
-	
 	long id;
 	String name;	
 	double price;
 	int status;		
-	Date date = new Date();
+	String date;
 	
-	public Chore() {
-		
-	}
-	public Chore(long id, String name, double price) {
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.status = NEW_STATUS;
-		this.date = new Date();
+	public Chore() {		
 	}
 	
-	@JsonIgnore	
-	public void setDate(Date date) {
+	
+	public void setDate(String date) {
 		this.date = date;
 	}
-	@JsonSerialize(using=JsonDateSerializer.class)	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	@JsonIgnore
+	
 	public void setId(long id) {
 		this.id = id;
 	}
