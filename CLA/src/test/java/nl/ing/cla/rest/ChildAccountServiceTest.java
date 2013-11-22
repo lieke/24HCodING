@@ -117,4 +117,35 @@ public class ChildAccountServiceTest {
 		assertEquals(ca.getGoalList().values().isEmpty(), false);
 	}
 
+	@Test
+	public void testUpdateGoal(){
+		SavingGoal goal = new SavingGoal();
+		goal.setGoal(2.5);
+		goal.setSaved(1.4);
+		ca.addGoal(goal);
+
+		SavingGoal goal2 = new SavingGoal();
+		goal2.setId(goal.getId());
+		goal2.setGoal(2.5);
+		goal2.setSaved(2.0);
+		
+		double saved = ca.getGoalList().values().iterator().next().getSaved();
+		assertEquals(saved == 1.4, true);
+		childAccountService.updateOrCreateSavingGoalForChild("LISA", goal2.getId(), goal2);
+		saved = ca.getGoalList().values().iterator().next().getSaved();
+		assertEquals(saved == 2.0, true);
+		
+	}
+	
+	@Test
+	public void testDeleteSavingGoal(){
+		SavingGoal goal = new SavingGoal();
+		goal.setGoal(2.5);
+		goal.setSaved(1.4);
+		ca.addGoal(goal);
+		
+		childAccountService.deleteSavingGoalForChild("LISA", goal.getId());
+		assertEquals(ca.getGoalList().values().isEmpty(), true);
+	}
+	
 }
