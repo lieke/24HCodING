@@ -3,6 +3,7 @@ package nl.ing.cla.model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+
 import nl.ing.cla.util.CLAUtil;
 
 
@@ -13,6 +14,8 @@ public class ChildAccount extends Account {
 	
 	Map<Long, Chore> choreList = new LinkedHashMap<Long, Chore>();
 	Map<Long, SavingGoal> goalList = new LinkedHashMap<Long, SavingGoal>();
+	
+		
 	
 	public void addChore(Chore chore) {
 		final long id = CLAUtil.giveMeAUniqueId();

@@ -5,18 +5,22 @@ public class SavingGoal {
 	double saved;
 	double goal;	
 	long id;
+	String name;
+	boolean show;
 	
+		
+	public boolean isShow() {
+		return show;
+	}
+
+	public void setShow(boolean show) {
+		this.show = show;
+	}
+
 	public SavingGoal() {
 		
-	}
-	
-	public SavingGoal(float saved, float goal, long id) {
-		super();
-		this.saved = saved;
-		this.goal = goal;
-		this.id = id;
-	}
-	
+	}	
+		
 	public long getId() {
 		return id;
 	}
@@ -35,6 +39,14 @@ public class SavingGoal {
 	}
 	public void setGoal(double goal) {
 		this.goal = goal;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	
