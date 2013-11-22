@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.db.file.FileSaveData;
+import nl.ing.cla.exception.BalanceToLowToTransferMoneyException;
 import nl.ing.cla.exception.ErrorException;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
@@ -76,7 +77,7 @@ public class ParentAccountService {
 	public Response createChoreForChild(
 			@PathParam("parentName") String parentName,
 			@PathParam("choreID") long choreID,
-			@PathParam("childName") String childName) {
+			@PathParam("childName") String childName) throws BalanceToLowToTransferMoneyException {
 
 		ParentAccount parent = null;
 		try {
