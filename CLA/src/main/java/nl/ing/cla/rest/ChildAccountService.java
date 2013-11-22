@@ -76,12 +76,15 @@ public class ChildAccountService {
 		return Response.status(201).entity("Delete chore with ID=" + choreID + " successfully.").build();		
 	}
 	
+
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/goals")
 	public Response createSavingGoalForChild(@PathParam("childName") String childName, SavingGoal goal) {
 		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
+		//checkBalance(childAccount, goal);		
 		childAccount.addGoal(goal);
 		
 		saveChildAccount(childAccount);
@@ -102,6 +105,7 @@ public class ChildAccountService {
 	@Path("/{childName}/goals/{goalID}")
 	public Response updateOrCreateSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
+		//checkBalance(childAccount, goal);
 		childAccount.updateGoal(goalID, goal);	
 		saveChildAccount(childAccount);
 		

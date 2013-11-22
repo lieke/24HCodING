@@ -17,5 +17,10 @@ public class ErrorException extends WebApplicationException {
 	             .entity("{\"error\":\"" + exception.getMessage() + "\"}").type(MediaType.APPLICATION_JSON_TYPE).build());
 	}
 	
+	public ErrorException (final String error) {			
+		super(Response.status(Response.Status.BAD_REQUEST)
+	             .entity("{\"error\":\"" + error + "\"}").type(MediaType.APPLICATION_JSON_TYPE).build());
+	}
+	
 	
 }

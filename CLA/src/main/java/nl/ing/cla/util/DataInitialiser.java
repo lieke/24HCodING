@@ -2,7 +2,12 @@ package nl.ing.cla.util;
 
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.db.file.FileGetData;
-import nl.ing.cla.model.*;
+import nl.ing.cla.model.ChildAccount;
+import nl.ing.cla.model.Chore;
+import nl.ing.cla.model.DataFileBasedParentAccount;
+import nl.ing.cla.model.ParentAccount;
+import nl.ing.cla.model.SavingGoal;
+
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,13 +49,15 @@ public class DataInitialiser {
 		ca.addChore(chore);
 		
 		SavingGoal goal = new SavingGoal();
-		goal.setGoal(50);
-		goal.setSaved(45);
+		goal.setGoal(25);
+		goal.setSaved(5);
+		goal.setName("doll");
 		ca.addGoal(goal);
 
 		goal = new SavingGoal();
-		goal.setGoal(45);
-		goal.setSaved(20);		
+		goal.setGoal(150);
+		goal.setSaved(2);
+		goal.setName("nintendo");
 		ca.addGoal(goal);
 
 		if(getData.getChildAccountData("LISA") == null){

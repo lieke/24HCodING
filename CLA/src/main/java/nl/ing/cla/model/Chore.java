@@ -13,11 +13,22 @@ public class Chore {
 	double price;
 	int status;		
 	String date;
+	String type;
 	
 	public Chore() {		
 	}
 	
 	
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
 	public void setDate(String date) {
 		this.date = date;
 	}
