@@ -97,6 +97,14 @@ public class ChildAccountService {
 		return Response.status(201).entity(goal.getId()).build();		
 	}
 	
+	@POST
+	@Path("/{childName}/finished/{choreID}")
+	public Response finishChore(@PathParam("childName") String childName, @PathParam("choreID") long choreID) {
+		ChildAccount childAccount = getData.getChildAccountData(childName);
+		childAccount.getChore(choreID).setAsDone();
+		return Response.status(201).entity(childName + " finished chore " + choreID).build();
+	}
+	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/goals/{goalID}")

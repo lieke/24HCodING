@@ -71,16 +71,9 @@ public class ParentAccountService {
 			@PathParam("choreID") long choreID,
 			@PathParam("childName") String childName) {
 
+		ParentAccount parent = null;
 		try {
-			ParentAccount parent = getData.getParentAccountData(parentName);
-			ChildAccount child = getData.getChildAccountData(childName);
-			Chore chore = child.getChore(choreID);
-			
-			//complete chore (change status)
-			chore.setAsPaid();
-			//transfer money from parent to child account
-			parent.transferTo(chore.getPrice(), child);
-
+			parent = getData.getParentAccountData(parentName);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,8 +84,15 @@ public class ParentAccountService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ChildAccount child = getData.getChildAccountData(childName);
+		Chore chore = child.getChore(choreID);
 
-		return null;// Response.status(201).entity(chore.getId()).build();
+		// complete chore (change status)
+		chore.setAsPaid();
+		// transfer money from parent to child account
+		parent.transferTo(chore.getPrice(), child);
+
+		return Response.status(201).entity("completed another goal!!").build();
 	}
 
 }
