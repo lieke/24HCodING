@@ -39,25 +39,32 @@ public class DataInitialiser {
 		simpleParentAccount.setChildNames(childrenNames);
 		childrenNames.add("LISA");
 
-		ChildAccount ca = new ChildAccount("C001", 20.5, "LISA", 6);
+		ChildAccount ca = new ChildAccount("C001", 98, "LISA", 6);
 		
 		Chore chore = new Chore();
-		chore.setName("car wash");
-		chore.setPrice(3.5);
+		chore.setName("auto wassen");
+		chore.setPrice(5);
+		chore.setStatus(Chore.NEW_STATUS);
+		chore.setDate("23-11-2013");
+		ca.addChore(chore);
+		
+		chore = new Chore();
+		chore.setName("afwassen");
+		chore.setPrice(1);
 		chore.setStatus(Chore.NEW_STATUS);
 		chore.setDate("23-11-2013");
 		ca.addChore(chore);
 		
 		SavingGoal goal = new SavingGoal();
-		goal.setGoal(25);
-		goal.setSaved(5);
-		goal.setName("doll");
+		goal.setGoal(120);
+		goal.setSaved(20);
+		goal.setName("bicycle");
 		ca.addGoal(goal);
 
 		goal = new SavingGoal();
-		goal.setGoal(150);
-		goal.setSaved(2);
-		goal.setName("nintendo");
+		goal.setGoal(80);
+		goal.setSaved(78);
+		goal.setName("furby");
 		ca.addGoal(goal);
 
 		if(getData.getChildAccountData("LISA") == null){
