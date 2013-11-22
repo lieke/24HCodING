@@ -24,6 +24,9 @@ public class CORSFilter implements Filter {
 		((HttpServletResponse)response).addHeader(
 				"Access-Control-Allow-Origin", "*"
 		);
+		((HttpServletResponse)response).addHeader(
+				"Access-Control-Allow-Methods", "GET,POST,DELETE,PUT"
+		);
 		chain.doFilter(request, response);
 	}
 }
