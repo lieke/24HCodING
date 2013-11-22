@@ -26,6 +26,10 @@ public class ChildAccount {
 		choreList.put(id, chore);
 	}
 	
+	public void deleteChore(final long id) {
+		choreList.remove(id);
+	}
+	
 	public void addGoal(final SavingGoal savingGoal) {
 		final long id =  CLAUtil.giveMeAUniqueId();
 		savingGoal.setId(id);
@@ -36,6 +40,9 @@ public class ChildAccount {
 		goalList.put(id, savingGoal);
 	}
 	
+	public void deleteGoal(final long id) {
+		goalList.remove(id);
+	}
 
 	public String getAccountNumber() {
 		return accountNumber;

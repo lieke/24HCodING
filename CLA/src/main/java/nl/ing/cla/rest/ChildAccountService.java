@@ -2,6 +2,7 @@ package nl.ing.cla.rest;
 
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -55,13 +56,24 @@ public class ChildAccountService {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/chores/{choreID}")
-	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("choreID") long choreID, Chore chore) {
+	public Response updateOrCreateChoreForChild(@PathParam("childName") String childName, @PathParam("choreID") long choreID, Chore chore) {
 		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateChore(choreID, chore);		
 		saveData.saveChildAccountData(childAccount);
 		
 		return Response.status(201).entity(chore).build();		
+	}
+	
+	@DELETE
+	@Path("/{childName}/chores/{choreID}")
+	public Response deleteChoreForChild(@PathParam("childName") String childName, @PathParam("choreID") long choreID) {
+		
+		ChildAccount childAccount = getData.getChildAccountData(childName);
+		childAccount.deleteChore(choreID);	
+		saveData.saveChildAccountData(childAccount);
+		
+		return Response.status(201).entity("Delete chore with ID=" + choreID + " successfully.").build();		
 	}
 	
 	@POST
@@ -80,7 +92,7 @@ public class ChildAccountService {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/goals/{goalID}")
-	public Response createSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
+	public Response updateOrCreateSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateGoal(goalID, goal);	
 		saveData.saveChildAccountData(childAccount);
@@ -88,6 +100,15 @@ public class ChildAccountService {
 		return Response.status(201).entity(goal).build();		
 	}
 	
+	@DELETE
+	@Path("/{childName}/goals/{goalID}")
+	public Response deleteSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID) {		
+		ChildAccount childAccount = getData.getChildAccountData(childName);
+		childAccount.deleteGoal(goalID);
+		saveData.saveChildAccountData(childAccount);
+		
+		return Response.status(201).entity("Delete saving goal with ID=" + goalID + " successfully.").build();		
+	}
 	
 	
 }
