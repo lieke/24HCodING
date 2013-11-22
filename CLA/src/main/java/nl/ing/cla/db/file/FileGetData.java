@@ -21,10 +21,20 @@ public class FileGetData implements nl.ing.cla.db.GetData {
 	@Autowired
 	private CLAUtil util;
 	
+	private ObjectMapper mapper = new ObjectMapper();
+	
+	public ObjectMapper getMapper() {
+		return mapper;
+	}
+
+	public void setMapper(ObjectMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	@Override
 	public ChildAccount getChildAccountData(final String name) {
 		final String fileName = util.getFileName(name + "_child");
-		ObjectMapper mapper = new ObjectMapper();
+
 		try {
 			ChildAccount childAccount = mapper.readValue(new File(fileName), ChildAccount.class);
 			return childAccount;
@@ -44,7 +54,6 @@ public class FileGetData implements nl.ing.cla.db.GetData {
 		DataFileBasedParentAccount parentAccountSimple;
 		List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
 		
-		ObjectMapper mapper = new ObjectMapper();
 		parentAccountSimple = mapper.readValue(new File(fileName), DataFileBasedParentAccount.class);
 		
 		for (String childName: parentAccountSimple.getChildNames()) {
