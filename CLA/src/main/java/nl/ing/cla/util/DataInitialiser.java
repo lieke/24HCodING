@@ -61,12 +61,14 @@ public class DataInitialiser {
 		goal.setGoal(120);
 		goal.setSaved(20);
 		goal.setName("bicycle");
+		goal.setShow(true);;
 		ca.addGoal(goal);
 
 		goal = new SavingGoal();
 		goal.setGoal(80);
 		goal.setSaved(78);
 		goal.setName("furby");
+		goal.setShow(false);
 		ca.addGoal(goal);
 
 		if(getData.getChildAccountData("LISA") == null){
