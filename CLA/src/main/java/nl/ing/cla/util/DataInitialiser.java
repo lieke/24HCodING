@@ -46,6 +46,7 @@ public class DataInitialiser {
 		chore.setPrice(5);
 		chore.setStatus(Chore.NEW_STATUS);
 		chore.setDate("23-11-2013");
+		chore.setType("carwash");
 		ca.addChore(chore);
 		
 		chore = new Chore();
@@ -53,6 +54,7 @@ public class DataInitialiser {
 		chore.setPrice(1);
 		chore.setStatus(Chore.NEW_STATUS);
 		chore.setDate("23-11-2013");
+		chore.setType("dishwasher");
 		ca.addChore(chore);
 		
 		SavingGoal goal = new SavingGoal();
