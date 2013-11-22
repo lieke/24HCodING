@@ -1,4 +1,4 @@
-package nl.ing.cla.db.model;
+package nl.ing.cla.model;
 
 import static org.junit.Assert.assertTrue;
 import nl.ing.cla.exception.BalanceToLowToTransferMoneyException;
@@ -21,15 +21,11 @@ public class AccountTest {
 		assertTrue(acc1.getBalance() == 120);
 	}
 	
-	@Test
-	public void testTransferToNotEnoughBalance() {
+	@Test (expected = BalanceToLowToTransferMoneyException.class)
+	public void testTransferToNotEnoughBalance() throws Exception {
 		acc1.setBalance(100);
 		acc2.setBalance(10);
-		try {
-			acc2.transferTo(20, acc1);
-		} catch (BalanceToLowToTransferMoneyException e) {
-			//this should actually happen!
-		}
+		acc2.transferTo(20, acc1);
 		assertTrue(acc1.getBalance() == 100);
 		assertTrue(acc2.getBalance() == 10);
 	}

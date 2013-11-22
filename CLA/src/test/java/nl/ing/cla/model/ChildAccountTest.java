@@ -1,4 +1,4 @@
-package nl.ing.cla.db.model;
+package nl.ing.cla.model;
 
 import static org.junit.Assert.assertTrue;
 import nl.ing.cla.model.ChildAccount;
