@@ -8,6 +8,7 @@ import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
 import nl.ing.cla.model.DataFileBasedParentAccount;
 import nl.ing.cla.model.ParentAccount;
+import nl.ing.cla.util.RoaringLion;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ParentAccountService {
 	
 	@Autowired
 	private SaveData saveData;
+
+	@Autowired
+	private RoaringLion lion;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -91,6 +95,8 @@ public class ParentAccountService {
 		try {
 			saveData.saveChildAccountData(child);	
 			saveData.saveDataFileBasedParentAccountData(new DataFileBasedParentAccount(parent));
+
+			lion.deposit(chore.getPrice());
 		} catch (IOException e) {
 			throw new ErrorException(e);
 		}
