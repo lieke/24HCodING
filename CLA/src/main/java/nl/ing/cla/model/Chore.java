@@ -6,18 +6,28 @@ public class Chore {
 	public final static int DONE_STATUS = 1;
 	public final static int PAID_STATUS = 2;
 	
+	long id;
 	String name;	
 	double price;
 	int status;
+	
 	public Chore() {
 		
 	}
-	public Chore(String name, double price) {
+	public Chore(long id, String name, double price) {
+		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.status = NEW_STATUS;
 	}
 	
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	public long getId() {
+		return id;
+	}
 	public void setAsDone() {
 		this.status = DONE_STATUS;
 	}
