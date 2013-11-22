@@ -80,7 +80,7 @@ public class ChildAccountService {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{childName}/goals/{goalID}")
-	public Response createChoreForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
+	public Response createSavingGoalForChild(@PathParam("childName") String childName, @PathParam("goalID") long goalID, SavingGoal goal) {		
 		ChildAccount childAccount = getData.getChildAccountData(childName);
 		childAccount.updateGoal(goalID, goal);	
 		saveData.saveChildAccountData(childAccount);
