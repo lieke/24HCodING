@@ -74,7 +74,7 @@ public class ParentAccountService {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{parentName}/completes/{choreID}/for/{childName}")
-	public Response createChoreForChild(
+	public Response completeChoreForChild(
 			@PathParam("parentName") String parentName,
 			@PathParam("choreID") long choreID,
 			@PathParam("childName") String childName) throws BalanceToLowToTransferMoneyException {
