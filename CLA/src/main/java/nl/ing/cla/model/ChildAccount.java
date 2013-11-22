@@ -5,7 +5,6 @@ import java.util.Map;
 
 import nl.ing.cla.util.CLAUtil;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class ChildAccount {
 	
