@@ -92,7 +92,7 @@ public class ParentAccountService {
 		// transfer money from parent to child account
 		parent.transferTo(chore.getPrice(), child);
 
-		return Response.status(201).entity("completed another goal!!").build();
+		return Response.status(201).entity(child.getName() + "got paid for another goal!!").build();
 	}
 
 }
