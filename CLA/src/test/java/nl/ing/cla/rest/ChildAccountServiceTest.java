@@ -10,6 +10,7 @@ import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.model.ChildAccount;
 import nl.ing.cla.model.Chore;
+import nl.ing.cla.model.SavingGoal;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -65,5 +66,55 @@ public class ChildAccountServiceTest {
 		assertEquals(ca.getChoreList().values().size(), 1);
 	}
 	
+	@Test
+	public void testUpdateChore(){
+		Chore chore = new Chore();
+		chore.setName("car wash");
+		chore.setPrice(2.5);
+		chore.setDate("20 Nov 2013");
+		chore.setStatus(0);
+		ca.addChore(chore);
+		
+		Chore chore2 = new Chore();
+		chore2.setName("car wash");
+		chore2.setPrice(5.0);
+		chore2.setDate("20 Nov 2013");
+		chore2.setStatus(0);
+		chore2.setId(chore.getId());
+		
+		double price = ca.getChoreList().values().iterator().next().getPrice();
+		assertEquals(price == 2.5, true);
+		
+		childAccountService.updateOrCreateChoreForChild("LISA", chore.getId(), chore2);
+		
+		price = ca.getChoreList().values().iterator().next().getPrice();
+		assertNotNull(price);
+		assertEquals(price == 5.0, true);
+	}
+	
+	
+	@Test
+	public void testDeleteChore(){
+		Chore chore = new Chore();
+		chore.setName("car wash");
+		chore.setPrice(2.5);
+		chore.setDate("20 Nov 2013");
+		chore.setStatus(0);
+		ca.addChore(chore);
+		
+		childAccountService.deleteChoreForChild("LISA", chore.getId());
+		
+		assertEquals(ca.getChoreList().isEmpty(), true);
+	}
+	
+	@Test
+	public void testCreateGoal(){
+		SavingGoal goal = new SavingGoal();
+		goal.setGoal(2.5);
+		goal.setSaved(1.4);
+		
+		childAccountService.createSavingGoalForChild("LISA", goal);
+		assertEquals(ca.getGoalList().values().isEmpty(), false);
+	}
 
 }

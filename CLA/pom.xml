@@ -132,6 +132,10 @@
                 <configuration>
                     <port>${tomcat7.port}</port>
                     <path>/CLA</path>
+
+                    <!-- For deploying (`mvn tomcat7:deploy` or `mvn tomcat7:redeploy`). -->
+                    <server>demo</server>
+                    <url>http://172.16.35.203:9080/manager</url>
                 </configuration>
                 <dependencies>
                     <dependency>
