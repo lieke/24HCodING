@@ -44,6 +44,7 @@ public class DataInitialiser {
 		chore.setName("car wash");
 		chore.setPrice(3.5);
 		chore.setStatus(Chore.NEW_STATUS);
+		chore.setDate("23-11-2013");
 		ca.addChore(chore);
 		
 		SavingGoal goal = new SavingGoal();
