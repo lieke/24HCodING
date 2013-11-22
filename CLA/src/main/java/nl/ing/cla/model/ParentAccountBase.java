@@ -1,9 +1,11 @@
 package nl.ing.cla.model;
 
 
+import org.mongodb.morphia.annotations.Index;
+
 public abstract class ParentAccountBase extends Account {
 	String accountNumber;
-	
+
 	String name;
 	int age;
 	

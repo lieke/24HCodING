@@ -4,13 +4,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import nl.ing.cla.util.CLAUtil;
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Index;
 
-
+@Entity("children")
+@Index("name")
 public class ChildAccount extends Account {	
 	String accountNumber;
 	String name;
 	int age;
-	
+
+	@Id
+	private ObjectId id;
+
 	Map<Long, Chore> choreList = new LinkedHashMap<Long, Chore>();
 	Map<Long, SavingGoal> goalList = new LinkedHashMap<Long, SavingGoal>();
 	

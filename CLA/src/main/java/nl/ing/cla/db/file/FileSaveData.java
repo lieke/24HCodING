@@ -13,7 +13,7 @@ import nl.ing.cla.util.CLAUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class FileSaveData implements SaveData {
 	@Autowired
 	private CLAUtil util;

@@ -1,10 +1,22 @@
 package nl.ing.cla.model;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Index;
+import org.mongodb.morphia.annotations.Reference;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParentAccount extends ParentAccountBase {	
+@Entity("parents")
+@Index("name")
+public class ParentAccount extends ParentAccountBase {
+	@Reference
 	List<ChildAccount> childaccounts = new ArrayList<ChildAccount>();
+
+	@Id
+	private ObjectId id;
 	
 	public ParentAccount(DataFileBasedParentAccount parentAccountSimple, List<ChildAccount> childAccounts) {
 		this.accountNumber = parentAccountSimple.getAccountNumber();

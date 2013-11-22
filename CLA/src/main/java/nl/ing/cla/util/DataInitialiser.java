@@ -1,5 +1,6 @@
 package nl.ing.cla.util;
 
+import nl.ing.cla.db.GetData;
 import nl.ing.cla.db.SaveData;
 import nl.ing.cla.db.file.FileGetData;
 import nl.ing.cla.db.file.FileSaveData;
@@ -23,7 +24,7 @@ import java.util.List;
 @Component
 public class DataInitialiser {
 	@Autowired
-	private FileGetData getData;
+	private GetData getData;
 
 	@Autowired
 	private SaveData saveData;
